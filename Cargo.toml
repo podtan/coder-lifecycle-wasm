@@ -1,0 +1,23 @@
+[package]
+name = "coder-lifecycle-wasm"
+version = "0.3.0"
+edition = "2021"
+description = "Lifecycle extension for ABK agents - template management and task classification"
+license = "MIT OR Apache-2.0"
+authors = ["Podtan Team"]
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+wit-bindgen = "0.39.0"
+wit-bindgen-rt = "0.39.0"
+regex = "1.11.1"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+[profile.release]
+opt-level = "z"
+lto = true
+strip = true
+codegen-units = 1
